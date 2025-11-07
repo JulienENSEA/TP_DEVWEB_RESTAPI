@@ -1,3 +1,5 @@
+const db = require('./database');
+
 // Importation des modules nécessaires
 const express = require('express');
 const cors = require('cors');
@@ -25,25 +27,46 @@ app.listen(PORT, () => {
 });
 
 app.get('/api/cars', (req, res) => {
-  // req = request (requête entrante)// res = response (réponse à envoyer)
+  const query = 'SELECT * FROM cars ORDER BY year DESC';
   
-  res.json({ message: 'Liste des voitures' });
-});
-
-// GET - Récupérer toutes les voitures
-app.get('/api/cars', (req, res) => {
-  res.json({ 
-    message: 'Liste de toutes les voitures',
-    data: [] 
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ 
+        error: 'Erreur lors de la récupération des voitures',
+        details: err.message 
+      });
+    }
+    
+    res.json({
+      message: 'Liste des voitures',
+      count: rows.length,
+      data: rows
+    });
   });
 });
 
-// GET - Récupérer une voiture par son ID
 app.get('/api/cars/:id', (req, res) => {
   const id = req.params.id;
-  res.json({ 
-    message: `Voiture avec l'ID ${id}`,
-    data: null 
+  const query = 'SELECT * FROM cars WHERE id = ?';
+  
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      return res.status(500).json({ 
+        error: 'Erreur serveur',
+        details: err.message 
+      });
+    }
+    
+    if (!row) {
+      return res.status(404).json({ 
+        error: 'Voiture non trouvée' 
+      });
+    }
+    
+    res.json({
+      message: 'Voiture trouvée',
+      data: row
+    });
   });
 });
 

@@ -121,10 +121,3 @@ J'ai mis “clé” au lieu de “ma-super-cle-api-2025" donc ça ne peut pas fo
 
 
 
-Plus loin : 
-
-Affiche permet d'effectuer une recherche dans la base de données on voie les différents essais que j’ai fait d'ajout de la Ferrari
-
-![](Aspose.Words.30d6caec-3913-4b53-84ea-cfbba98d5667.011.png)
-||||
-| :- | :-: | -: |

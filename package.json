@@ -1,32 +1,22 @@
 {
-  "name": "js-api",
+  "name": "cars-api",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000T\u0000P\u0000_\u0000D\u0000E\u0000V\u0000W\u0000E\u0000B\u0000_\u0000R\u0000E\u0000S\u0000T\u0000A\u0000P\u0000I\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "API serveur pour Cars - TP2 Développement Web",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "seed": "node seed.js",
-    "database": "node database.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "frontend": "cd front && npm run dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JulienENSEA/TP_DEVWEB_RESTAPI.git"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": ["cars", "api", "express"],
+  "author": "Étudiant DW",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JulienENSEA/TP_DEVWEB_RESTAPI/issues"
-  },
-  "homepage": "https://github.com/JulienENSEA/TP_DEVWEB_RESTAPI#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "sqlite3": "^5.1.7"
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.0.2"
   }
 }
